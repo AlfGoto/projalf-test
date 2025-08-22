@@ -1,9 +1,9 @@
-import { App, Stack, StackProps } from 'aws-cdk-lib';
-import { Construct } from 'constructs';
+import { App, Stack, StackProps } from "aws-cdk-lib"
+import { Construct } from "constructs"
 
 export class MyStack extends Stack {
   constructor(scope: Construct, id: string, props: StackProps = {}) {
-    super(scope, id, props);
+    super(scope, id, props)
 
     // define resources here...
   }
@@ -13,11 +13,11 @@ export class MyStack extends Stack {
 const devEnv = {
   account: process.env.CDK_DEFAULT_ACCOUNT,
   region: process.env.CDK_DEFAULT_REGION,
-};
+}
 
-const app = new App();
+const app = new App()
 
-new MyStack(app, 'projalf-test-dev', { env: devEnv });
+new MyStack(app, "projalf-test-dev", { env: devEnv })
 // new MyStack(app, 'projalf-test-prod', { env: prodEnv });
 
-app.synth();
+app.synth()

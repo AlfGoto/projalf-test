@@ -8,5 +8,6 @@ export interface ProjalfTestProps extends cdk.StackProps {
 export class ProjalfTest extends cdk.Stack {
   constructor(scope: Construct, id: string, props: ProjalfTestProps) {
     super(scope, id, props);
+    // Add your infra here...
   }
 }

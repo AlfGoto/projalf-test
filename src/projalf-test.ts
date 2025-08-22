@@ -3,6 +3,7 @@ import { Construct } from 'constructs';
 
 export interface ProjalfTestProps extends cdk.StackProps {
   serviceName: string;
+  stage: string;
 }
 
 export class ProjalfTest extends cdk.Stack {

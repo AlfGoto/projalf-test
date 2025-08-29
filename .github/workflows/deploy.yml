@@ -21,9 +21,9 @@ jobs:
         with:
           node-version: "20"
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
       - name: Build
-        run: yarn build
+        run: npm run build
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -34,7 +34,7 @@ jobs:
       - name: Deploy Dev
         env:
           CDK_DEPLOY_ACCOUNT: ${{ secrets.AWS_DEV_ACCOUNT }}
-          CDK_DEPLOY_REGION: ${{ secrets.AWS_REGION || 'us-east-1' }}
+          CDK_DEPLOY_REGION: ${{ secrets.AWS_REGION || 'eu-central-1' }}
         run: npx cdk deploy projalf-test --require-approval never
   deploy_prod:
     runs-on: ubuntu-latest
@@ -50,9 +50,9 @@ jobs:
         with:
           node-version: "20"
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
       - name: Build
-        run: yarn build
+        run: npm run build
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -63,5 +63,5 @@ jobs:
       - name: Deploy Prod
         env:
           CDK_DEPLOY_ACCOUNT: ${{ secrets.AWS_PROD_ACCOUNT }}
-          CDK_DEPLOY_REGION: ${{ secrets.AWS_REGION || 'us-east-1' }}
+          CDK_DEPLOY_REGION: ${{ secrets.AWS_REGION || 'eu-central-1' }}
         run: npx cdk deploy projalf-test --require-approval never

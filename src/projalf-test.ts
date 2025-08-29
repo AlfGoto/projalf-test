@@ -42,6 +42,7 @@ export class ProjalfTest extends cdk.Stack {
       "ApiIntegration",
       apiFunction,
     )
+
     api.addRoutes({
       path: "/{proxy+}",
       methods: [apigw.HttpMethod.GET, apigw.HttpMethod.POST],

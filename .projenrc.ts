@@ -2,7 +2,7 @@ import { Projalf } from "projalf"
 const project = new Projalf({
   cdkVersion: "2.1.0",
   defaultReleaseBranch: "main",
-  devDeps: ["projalf"],
+  devDeps: ["projalf@0.0.16"],
   name: "projalf-test",
   projenrcTs: true,
 

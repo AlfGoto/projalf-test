@@ -1,11 +1,10 @@
 import * as cdk from "aws-cdk-lib"
-import * as lambda from "aws-cdk-lib/aws-lambda"
 import * as apigw from "aws-cdk-lib/aws-apigatewayv2"
 import * as integrations from "aws-cdk-lib/aws-apigatewayv2-integrations"
+import * as lambda from "aws-cdk-lib/aws-lambda"
 import * as ln from "aws-cdk-lib/aws-lambda-nodejs"
 import * as logs from "aws-cdk-lib/aws-logs"
 import { Construct } from "constructs"
-import { table } from "console"
 
 export interface ProjalfTestProps extends cdk.StackProps {
   serviceName: string
@@ -15,7 +14,6 @@ export interface ProjalfTestProps extends cdk.StackProps {
 export class ProjalfTest extends cdk.Stack {
   constructor(scope: Construct, id: string, props: ProjalfTestProps) {
     super(scope, id, props)
-
 
     const api = new apigw.HttpApi(this, "TransferApi", {
       corsPreflight: {
@@ -42,7 +40,7 @@ export class ProjalfTest extends cdk.Stack {
 
     const apiIntegration = new integrations.HttpLambdaIntegration(
       "ApiIntegration",
-      apiFunction
+      apiFunction,
     )
     api.addRoutes({
       path: "/{proxy+}",
